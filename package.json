@@ -32,6 +32,6 @@
     "@types/os-utils": "^0.0.1"
   },
   "bin": {
-    "system-monitor": "./system-monitor.sh"
+    "system-monitor": "./cli.js"
   }
 }
