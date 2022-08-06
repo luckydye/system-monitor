@@ -14,6 +14,7 @@ const update = async () => {
     cpu: await SystemInfo.getCPUUsage(),
     temp: await SystemInfo.getTemperature(),
     memory: await SystemInfo.getMemoryUsage(),
+    network: await SystemInfo.getNetwork(),
   };
   console.log(systemData);
 };

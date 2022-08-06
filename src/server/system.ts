@@ -34,4 +34,11 @@ export default class SystemInfo {
       return data.main;
     });
   }
+
+  public static getNetwork() {
+    return os.networkStats().then((data) => {
+      const int = data[0];
+      return int.tx_sec / 1000 / 1000 + int.rx_sec / 1000 / 1000;
+    });
+  }
 }

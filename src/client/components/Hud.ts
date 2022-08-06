@@ -13,6 +13,7 @@ export class SystemHud extends LitElement {
       .hud {
         padding: 40px 0;
         display: grid;
+        gap: 20px;
         grid-auto-flow: column;
         justify-items: center;
         text-align: center;
@@ -88,6 +89,24 @@ export class SystemHud extends LitElement {
               thickness="6"
             >
               <label><span state-key="innerText:memory"></span>%</label>
+            </circular-loader>
+            <circular-loader
+              class="background"
+              size="100"
+              thickness="6"
+              progress="100"
+            >
+            </circular-loader>
+          </div>
+
+          <div class="display">
+            <label>Network</label>
+            <circular-loader
+              state-key="progress:network"
+              size="100"
+              thickness="6"
+            >
+              <label><span state-key="innerText:network"></span>Mb/s</label>
             </circular-loader>
             <circular-loader
               class="background"
