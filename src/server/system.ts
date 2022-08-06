@@ -1,8 +1,19 @@
 import os from "systeminformation";
 
+let tempWarning = false;
+
+function warnTemp() {
+  if (!tempWarning) {
+    console.warn("Reading CPU temperature might require elevated privileges");
+    tempWarning = true;
+  }
+}
+
 export default class SystemInfo {
   public static getBatteryLevel(): Promise<number> {
-    return os.battery().then((data) => data.percent);
+    return os.battery().then((data) => {
+      return data.hasBattery ? null : data.percent;
+    });
   }
 
   public static getCPUUsage(): Promise<number> {
@@ -16,6 +27,11 @@ export default class SystemInfo {
   }
 
   public static getTemperature() {
-    return os.cpuTemperature().then((data) => data.main);
+    return os.cpuTemperature().then((data) => {
+      if (data.main === null) {
+        warnTemp();
+      }
+      return data.main;
+    });
   }
 }

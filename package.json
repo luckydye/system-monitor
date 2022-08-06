@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
-    "dev:server": "ts-node ./src/server/main.ts"
+    "dev": "ts-node ./src/server/main.ts"
   },
   "repository": {
     "type": "git",
