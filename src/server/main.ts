@@ -1,5 +1,7 @@
 import SystemInfo from "./system";
 
+const path = require("path");
+const fs = require("fs");
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -20,7 +22,8 @@ const loop = async () => {
 };
 loop();
 
-app.use("/", express.static("dist"));
+const dist = path.join(path.dirname(fs.realpathSync(__filename)), "../../dist");
+app.use("/", express.static(dist));
 
 app.get("/stats", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
