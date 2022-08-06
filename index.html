@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="./src/client/components.ts" type="module"></script>
+    <script src="./src/client/main.ts" type="module"></script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .hud {
+        padding: 40px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin: 0 0 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <app-state scope="system">
+      <div class="hud">
+        <div>
+          <label>CPU</label>
+          <circular-loader
+            state-key="progress:cpu"
+            progress="45"
+            size="100"
+            thickness="6"
+          >
+            <span state-key="innerText:cpu"></span>%
+          </circular-loader>
+        </div>
+        <div>
+          <label>Battery</label>
+          <circular-loader
+            state-key="progress:battery"
+            progress="45"
+            size="100"
+            thickness="6"
+          >
+            <span state-key="innerText:battery"></span>%
+          </circular-loader>
+        </div>
+        <div>
+          <label>Memory</label>
+          <circular-loader
+            state-key="progress:memory"
+            progress="45"
+            size="100"
+            thickness="6"
+          >
+            <span state-key="innerText:memory"></span>%
+          </circular-loader>
+        </div>
+      </div>
+    </app-state>
+  </body>
+</html>
