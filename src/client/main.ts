@@ -1,9 +1,7 @@
 import { State } from "@luckydye/app-state";
 
 async function fetchUpdate() {
-  const data = await fetch("http://localhost:3000/stats").then((res) =>
-    res.json()
-  );
+  const data = await fetch("/stats").then((res) => res.json());
   State.scope("system", {
     cpu: (data.cpu * 100).toFixed(1),
     battery: (data.battery * 100).toFixed(1),
