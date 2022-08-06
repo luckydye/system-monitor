@@ -1,21 +1,21 @@
-import { default as sys } from "node:os";
-import battery from "battery-level";
-import os from "os-utils";
+import os from "systeminformation";
 
 export default class SystemInfo {
   public static getBatteryLevel(): Promise<number> {
-    return battery();
+    return os.battery().then((data) => data.percent);
   }
 
   public static getCPUUsage(): Promise<number> {
-    return new Promise((resolve) => {
-      os.cpuUsage((usage) => {
-        resolve(usage);
-      });
+    return os.currentLoad().then((data) => data.currentLoad);
+  }
+
+  public static getMemoryUsage() {
+    return os.mem().then((data) => {
+      return (data.used / data.total) * 100;
     });
   }
 
-  public static getFreeMemory() {
-    return os.freememPercentage();
+  public static getTemperature() {
+    return os.cpuTemperature().then((data) => data.main);
   }
 }

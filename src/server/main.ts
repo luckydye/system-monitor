@@ -12,8 +12,10 @@ const update = async () => {
   systemData = {
     battery: await SystemInfo.getBatteryLevel(),
     cpu: await SystemInfo.getCPUUsage(),
-    memory: await SystemInfo.getFreeMemory(),
+    temp: await SystemInfo.getTemperature(),
+    memory: await SystemInfo.getMemoryUsage(),
   };
+  console.log(systemData);
 };
 
 const loop = async () => {

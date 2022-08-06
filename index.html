@@ -9,19 +9,28 @@
     <script src="./src/client/main.ts" type="module"></script>
 
     <style>
+      :root {
+        --accent-color: #f5e723;
+        --font-color: #333;
+      }
       body {
         font-family: sans-serif;
+        color: var(--font-color);
       }
       .hud {
         padding: 40px 0;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-flow: column;
         justify-items: center;
         text-align: center;
       }
       label {
         display: block;
-        margin: 0 0 10px 0;
+        color: var(--font-color);
+      }
+      circular-loader {
+        margin: 10px 0;
+        color: var(--accent-color);
       }
     </style>
   </head>
@@ -30,35 +39,30 @@
       <div class="hud">
         <div>
           <label>CPU</label>
-          <circular-loader
-            state-key="progress:cpu"
-            progress="45"
-            size="100"
-            thickness="6"
-          >
-            <span state-key="innerText:cpu"></span>%
+          <circular-loader state-key="progress:cpu" size="100" thickness="6">
+            <label><span state-key="innerText:cpu"></span>%</label>
           </circular-loader>
         </div>
         <div>
           <label>Battery</label>
           <circular-loader
             state-key="progress:battery"
-            progress="45"
             size="100"
             thickness="6"
           >
-            <span state-key="innerText:battery"></span>%
+            <label><span state-key="innerText:memory"></span>%</label>
           </circular-loader>
         </div>
         <div>
           <label>Memory</label>
-          <circular-loader
-            state-key="progress:memory"
-            progress="45"
-            size="100"
-            thickness="6"
-          >
-            <span state-key="innerText:memory"></span>%
+          <circular-loader state-key="progress:memory" size="100" thickness="6">
+            <label><span state-key="innerText:memory"></span>%</label>
+          </circular-loader>
+        </div>
+        <div>
+          <label>Temp</label>
+          <circular-loader state-key="progress:temp" size="100" thickness="6">
+            <label><span state-key="innerText:temp"></span>°C</label>
           </circular-loader>
         </div>
       </div>
