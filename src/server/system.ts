@@ -12,7 +12,7 @@ function warnTemp() {
 export default class SystemInfo {
   public static getBatteryLevel(): Promise<number> {
     return os.battery().then((data) => {
-      return data.hasBattery ? null : data.percent;
+      return data.hasBattery ? data.percent : null;
     });
   }
 
