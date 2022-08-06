@@ -1,6 +1,6 @@
 {
-  "name": "system-monitor",
-  "version": "1.0.0",
+  "name": "@luckydye/system-monitor",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
